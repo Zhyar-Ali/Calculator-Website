@@ -9,10 +9,10 @@ function add (...numb){
 }
 
 function subtract (...numb){
-    let total = 0;
+    let total = numb[0];
 
-    for (const numbers of numb){
-        total -= numbers;
+    for (let i=1; i<numb.length; i++){
+        total -= numb[i];
     }
 
     return total;
@@ -41,22 +41,20 @@ function divide (...numb){
 function operate(operator, num1, num2){
     switch (operator){
         case "+":
-            add(num1,num2);
-            break;
+            return add(num1,num2);
         case "-":
-            subtract(num1,num2);
-            break;
+            return subtract(num1,num2);
         case "*":
-            multiply(num1,num2);
-            break;
+            return multiply(num1,num2);
         case "/":
-            divide(num1,num2);
-            break;
+            return divide(num1,num2);
     }
 }
 
 const digitButtons = document.querySelectorAll(".digits button");
 const operators = document.querySelectorAll(".operators button");
+const equal = document.querySelector("#equal");
+const clear = document.querySelector("#clear")
 const screen = document.querySelector(".text");
 
 let num1="";
@@ -86,7 +84,20 @@ function display(){
             screen.innerText += operator;
         })
     })
+
+    equal.addEventListener("click", () => {
+        let result = operate(operator, Number(num1), Number(num2));
+        screen.innerText = result;
+    })
     
+    clear.addEventListener("click", () => {
+        num1="";
+        num2="";
+        operator ="";
+        isOperatorClicked = false;
+        screen.innerText = "";
+    })
+
 }
 
 
