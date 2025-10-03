@@ -72,7 +72,7 @@ function display(){
             }else{
                 num2 += getDigit;
             }
-            screen.innerText += getDigit;
+            screen.innerText = getDigit;
         })
     })
 
@@ -80,13 +80,25 @@ function display(){
         button.addEventListener("click", () => {
             const getOperator = button.innerText;
             isOperatorClicked = true;
-            operator = getOperator;
-            screen.innerText += operator;
+
+            if (!operator){
+                operator = getOperator;
+                // screen.innerText += operator;
+            }else{
+                let result = operate(operator, Number(num1), Number(num2));
+                num1 = result;
+                num2 = "";
+                operator = getOperator;
+                screen.innerText = "";
+                screen.innerText += num1 /*+ operator*/;
+            }
         })
     })
 
     equal.addEventListener("click", () => {
         let result = operate(operator, Number(num1), Number(num2));
+        num1 = result;
+        num2 = "";
         screen.innerText = result;
     })
     
