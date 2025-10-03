@@ -32,12 +32,14 @@ const operators = document.querySelectorAll(".operators button");
 const equal = document.querySelector("#equal");
 const clear = document.querySelector("#clear");
 const decimal = document.querySelector("#decimal");
+const backSpace = document.querySelector("#backSpace");
 const screen = document.querySelector(".text");
 
 let num1="";
 let num2="";
 let operator ="";
 let result = "";
+let resetOne = false;
 
 function display(){
 
@@ -49,14 +51,16 @@ function display(){
                 num1 += getDigit;
                 screen.innerText = num1;
             }else if(!operator && result){
-                num1 ="";
+                if (resetOne){
+                    num1 ="";
+                    resetOne = false;
+                }
                 num1 += getDigit;
                 screen.innerText = num1;
             }else{
                 num2 += getDigit;
                 screen.innerText = num2;
             }
-
         })
     })
 
@@ -81,6 +85,7 @@ function display(){
         num1 = result;
         num2 = "";
         operator = "";
+        resetOne = true;
         screen.innerText = result;
     })
     
@@ -104,6 +109,15 @@ function display(){
         }
     })
 
+    backSpace.addEventListener("click", () => {
+        if (!operator){
+            num1 = num1.slice(0,-1);
+            screen.innerText = num1;
+        }else{
+            num2 = num2.slice(0,-1);
+            screen.innerText = num2;
+        }
+    })
 }
 
 display();
