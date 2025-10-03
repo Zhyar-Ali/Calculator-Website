@@ -54,3 +54,40 @@ function operate(operator, num1, num2){
             break;
     }
 }
+
+const digitButtons = document.querySelectorAll(".digits button");
+const operators = document.querySelectorAll(".operators button");
+const screen = document.querySelector(".text");
+
+let num1="";
+let num2="";
+let operator ="";
+let isOperatorClicked = false;
+
+function display(){
+    digitButtons.forEach(button => {
+        button.addEventListener ("click", () => {
+            const getDigit = button.innerText;
+
+            if (!isOperatorClicked){
+                num1 += getDigit;
+            }else{
+                num2 += getDigit;
+            }
+            screen.innerText += getDigit;
+        })
+    })
+
+    operators.forEach(button => {
+        button.addEventListener("click", () => {
+            const getOperator = button.innerText;
+            isOperatorClicked = true;
+            operator = getOperator;
+            screen.innerText += operator;
+        })
+    })
+    
+}
+
+
+display();
