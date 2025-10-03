@@ -1,41 +1,17 @@
-function add (...numb){
-    let total = 0;
-
-    for (const numbers of numb){
-        total += numbers;
-    }
-
-    return total;
+function add (num1,num2){
+    return num1 +num2;
 }
 
-function subtract (...numb){
-    let total = numb[0];
-
-    for (let i=1; i<numb.length; i++){
-        total -= numb[i];
-    }
-
-    return total;
+function subtract (num1, num2){
+    return num1 - num2;
 }
 
-function multiply (...numb){
-    let total = 1;
-
-    for (const numbers of numb){
-        total *= numbers;
-    }
-
-    return total;
+function multiply (num1, num2){
+    return num1 * num2;
 }
 
-function divide (...numb){
-    let total = numb[0];
-
-    for (let i=1; i<numb.length; i++){
-        total /= numb[i];
-    }
-
-    return total;
+function divide (num1, num2){
+    return (num1 / num2).toFixed(2);
 }
 
 function operate(operator, num1, num2){
@@ -60,19 +36,27 @@ const screen = document.querySelector(".text");
 let num1="";
 let num2="";
 let operator ="";
+let result = "";
 let isOperatorClicked = false;
 
 function display(){
+
     digitButtons.forEach(button => {
         button.addEventListener ("click", () => {
             const getDigit = button.innerText;
 
-            if (!isOperatorClicked){
+            if (!isOperatorClicked && !result){
                 num1 += getDigit;
+                screen.innerText = num1;
+            }else if(!isOperatorClicked && result){
+                num1 ="";
+                num1 += getDigit;
+                screen.innerText = num1;
             }else{
                 num2 += getDigit;
+                screen.innerText = num2;
             }
-            screen.innerText = getDigit;
+
         })
     })
 
@@ -81,24 +65,23 @@ function display(){
             const getOperator = button.innerText;
             isOperatorClicked = true;
 
-            if (!operator){
-                operator = getOperator;
-                // screen.innerText += operator;
-            }else{
-                let result = operate(operator, Number(num1), Number(num2));
+            if (operator){
+                result = operate(operator, Number(num1), Number(num2));
                 num1 = result;
                 num2 = "";
                 operator = getOperator;
                 screen.innerText = "";
-                screen.innerText += num1 /*+ operator*/;
+                screen.innerText = num1;
             }
+            operator = getOperator;
         })
     })
 
     equal.addEventListener("click", () => {
-        let result = operate(operator, Number(num1), Number(num2));
+        result = operate(operator, Number(num1), Number(num2));
         num1 = result;
         num2 = "";
+        isOperatorClicked = false;
         screen.innerText = result;
     })
     
@@ -106,11 +89,11 @@ function display(){
         num1="";
         num2="";
         operator ="";
+        result = "";
         isOperatorClicked = false;
         screen.innerText = "";
     })
 
 }
-
 
 display();
