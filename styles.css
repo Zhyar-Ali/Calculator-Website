@@ -14,9 +14,10 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 700px;
-    width: 500px;
+    height: 600px;
+    width: 450px;
     border: 2px solid red;
+    border-radius: 50px;
 }
 .text{
     width: 344px;
@@ -57,18 +58,12 @@ button{
     /* border: transparent; */
 }
 #decimal{
-    position: relative;
-    height: 85.05px;
-    top: -174px;
-    left: 45px;
+    position: absolute;
+    bottom: 142px;
+    right: 871px;
 }
 #clear{
-    position: relative;
-    top: -88px;
-    left: -132px;
-    height: 82.93px;
+    position: absolute;
+    bottom: 142px;
+    left: 785px;
 }
-/* .misc{
-    display: flex;
-    border: 2px solid red;
-} */
