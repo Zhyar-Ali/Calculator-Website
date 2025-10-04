@@ -58,12 +58,10 @@ button{
     /* border: transparent; */
 }
 #decimal{
-    position: absolute;
-    bottom: 142px;
-    right: 871px;
+    margin-top: -84px;
+    margin-right: -86px;
 }
 #clear{
-    position: absolute;
-    bottom: 142px;
-    left: 785px;
+    margin-top: -84px;
+    margin-left: -260px;
 }
