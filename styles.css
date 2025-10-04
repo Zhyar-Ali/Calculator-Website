@@ -1,3 +1,7 @@
+@font-face{
+    font-family: 'MyCustomFont';
+    src: url(Fonts/Time/Time.ttf);
+}
 *{
     margin: 0;
     padding: 0;
@@ -8,6 +12,7 @@ body{
     height: 100vh;
     align-items: center;
     justify-content: center;
+    background-color: #4c4167;
 }
 .calc{
     display: flex;
@@ -16,17 +21,26 @@ body{
     justify-content: center;
     height: 600px;
     width: 450px;
-    border: 2px solid red;
-    border-radius: 50px;
+    border: 3px solid rgb(0, 0, 0);
+    border-radius: 30px;
+    background-color: #36363a;
 }
 .text{
     width: 344px;
     height: 80px;
-    border: 2px solid gray;
+    border: 3px solid black;
     text-align: end;
-    padding: 22px 10px;
-    border-radius: 20px;
+    padding: 18.5px 10px;
+    border-radius: 10px;
     margin-bottom: 4px;
+    background-color: #86e892;
+    font-size: 40px;
+    color: #143a17;
+    font-family: 'MyCustomFont';
+    letter-spacing: -6px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 .eq_rm{
     display: flex;
@@ -55,7 +69,8 @@ button{
     font-size: 30px;
     margin: 4px;
     border-radius: 20px;
-    /* border: transparent; */
+    background-color: #a3a3b6;
+    border: 3px solid #000000;
 }
 #decimal{
     margin-top: -84px;
@@ -64,4 +79,20 @@ button{
 #clear{
     margin-top: -84px;
     margin-left: -260px;
+    color: red;
+}
+.operator{
+    background-color: #F29F05;
+}
+button:hover{
+    cursor: pointer;
+}
+#decimal:hover:disabled{
+    cursor: default;
+}
+.num:hover, #clear:hover, #decimal:hover, #equal:hover, #backSpace:hover{
+    background-color: #afaff6 ;
+}
+.operator:hover{
+    background-color: #ff7b00;
 }
