@@ -14,24 +14,24 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 500px;
+    height: 700px;
     width: 500px;
     border: 2px solid red;
 }
 .text{
-    width: 172px;
-    height: 40px;
+    width: 344px;
+    height: 80px;
     border: 2px solid gray;
     text-align: end;
-    padding: 11px 5px;
-    border-radius: 10px;
-    margin-bottom: 2px;
+    padding: 22px 10px;
+    border-radius: 20px;
+    margin-bottom: 4px;
 }
 .eq_rm{
     display: flex;
 }
 #equal{
-    width: 128px;
+    width: 256px;
 }
 .num_op{
     display: flex;
@@ -39,30 +39,36 @@ body{
 .digits{
     display: flex;
     flex-wrap: wrap;
-    width: 132px;
+    width: 264px;
 }
 .digits :last-child{
-    margin: 2px auto;
+    margin: 4px auto;
 }
 .operators{
     display: flex;
     flex-direction: column;
 }
 button{
-    width: 40px;
-    height: 40px;
-    font-size: 15px;
-    margin: 2px;
-    border-radius: 10px;
+    width: 80px;
+    height: 80px;
+    font-size: 30px;
+    margin: 4px;
+    border-radius: 20px;
     /* border: transparent; */
 }
 #decimal{
     position: relative;
-    top: -44px;
-    left: -2px;
+    height: 85.05px;
+    top: -174px;
+    left: 45px;
 }
 #clear{
     position: relative;
-    top: -44px;
-    left: -42px;
+    top: -88px;
+    left: -132px;
+    height: 82.93px;
 }
+/* .misc{
+    display: flex;
+    border: 2px solid red;
+} */
